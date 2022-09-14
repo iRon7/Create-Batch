@@ -34,7 +34,7 @@ Create-Batch
 ```PowerShell
 Get-Process |Create-Batch -Size 100 |Set-Content .\Process.txt
 ```
-The result of this statement is the same as: `Get-Process |Set-Content .\Process.txt` 
+The result of this statement is the same as: `Get-Process |Set-Content .\Process.txt`  
 But note that this appears (for yet unknown reason) **about twice as fast.**  
 See: https://github.com/PowerShell/PowerShell/issues/18070
 

@@ -92,7 +92,7 @@ Describe 'Unrolling' {
 
         It 'No -Size (0)' {
 
-            $Actual = 0..9 |Create-Batch -Size 2 |Create-Batch
+            $Actual = 0..9 |Create-Batch -Size 2 |Create-Batch -Size 0
             $Actual |ConvertTo-Json -Compress |Should -Be '[0,1,2,3,4,5,6,7,8,9]'
 
             $Actual.Count |Should -Be 10
@@ -106,7 +106,7 @@ Describe 'Rebatching' {
 
         It '-Size 2 to -Size 3' {
 
-            $Actual = 0..9 |Create-Batch -Size 2 |Create-Batch |Create-Batch -Size 3
+            $Actual = 0..9 |Create-Batch -Size 2 |Create-Batch -Size 0 |Create-Batch -Size 3
             $Actual |ConvertTo-Json -Compress |Should -Be '[[0,1,2],[3,4,5],[6,7,8],[9]]'
 
             $Actual.Count |Should -Be 4
@@ -128,7 +128,7 @@ Describe 'Performance' {
             }).TotalSeconds
 
             $Batched = (Measure-Command {
-                1..100000 |Create-Batch 10000 |Set-Content .\test.txt
+                1..100000 |Create-Batch |Set-Content .\test.txt
             }).TotalSeconds
             
             $Batched |Should -BeLessThan ($Normal / 2)

@@ -17,7 +17,7 @@
 
 <#
 .SYNOPSIS
-Puts pipeline items into batches
+Puts pipeline items into one or more batches
 
 .DESCRIPTION
 This cmdlet puts the items in the pipeline into batches of a sertain ammount.
@@ -56,8 +56,8 @@ One or more arrays (`Object[]`) contain the input items
 .EXAMPLE
     Get-Process |Create-Batch -Size 100 |Set-Content .\Process.txt
 
-    Note this appears (for yet unknown reason) to be faster than just
-    `Get-Process |Set-Content .\Process.txt`
+    The result of this statement is the same as: `Get-Process |Set-Content .\Process.txt` 
+    But note that this appears (for yet unknown reason) **about twice as fast.**  
     See: https://github.com/PowerShell/PowerShell/issues/18070
 
 .LINK
@@ -66,7 +66,7 @@ One or more arrays (`Object[]`) contain the input items
 
 [CmdletBinding()]
 param (
-    [ULong]$Size,
+    [UInt64]$Size,
     [Parameter(Mandatory=$true, ValueFromPipeline=$true)]$InputObject
 )
 begin {

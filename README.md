@@ -1,5 +1,5 @@
 # Create-Batch
-Puts pipeline items into batches
+Puts pipeline items into one or more batches
 ## [Syntax](#syntax)
 ```PowerShell
 Create-Batch
@@ -32,10 +32,11 @@ Create-Batch
 
 ### Example 3
 ```PowerShell
-Get-Process |Create-Batch -Size 100 |Set-Content .\Process.txt
+Get-Process |Create-Batch |Set-Content .\Process.txt
 ```
+ This creates a single batch (array) containing all the itams  
 The result of this statement is the same as: `Get-Process |Set-Content .\Process.txt`  
-But note that this appears (for yet unknown reason) **about twice as fast.**  
+But note that this appears (for yet unknown reason) **about twice as fast**.  
 See: https://github.com/PowerShell/PowerShell/issues/18070
 
 ## [Parameters](#parameters)
@@ -48,7 +49,7 @@ Note that only the top arrays (batches) will be flattened.
 | --------------------------- | -------- |
 | Type:                       | [UInt64](https://docs.microsoft.com/en-us/dotnet/api/System.UInt64) |
 | Position:                   | 1 |
-| Default value:              | 0 |
+| Default value:              | 18446744073709551615 |
 | Accept pipeline input:      | false |
 | Accept wildcard characters: | false |
 ### `-InputObject`
@@ -63,9 +64,7 @@ Note that only the top arrays (batches) will be flattened.
 | Accept wildcard characters: | false |
 ## [Inputs](#inputs)
 ### A list of items
- The list of items to be put into batches (arrays)
-
 ## [Outputs](#outputs)
 ### One or more arrays (`Object[]`) contain the input items
 ## [Related Links](#related-links)
-* [Create-Batch](https://github.com/iRon7/Create-Batch)
+* [https://github.com/iRon7/Create-Batch](https://github.com/iRon7/Create-Batch)

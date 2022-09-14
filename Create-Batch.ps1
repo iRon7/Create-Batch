@@ -54,10 +54,11 @@ One or more arrays (`Object[]`) contain the input items
     This example removes the batches of 3 items and creates new batches of 4 items.
 
 .EXAMPLE
-    Get-Process |Create-Batch -Size 100 |Set-Content .\Process.txt
+    Get-Process |Create-Batch |Set-Content .\Process.txt
 
+    This creates a single batch (array) containing all the itams
     The result of this statement is the same as: `Get-Process |Set-Content .\Process.txt` 
-    But note that this appears (for yet unknown reason) **about twice as fast.**  
+    But note that this appears (for yet unknown reason) **about twice as fast**.  
     See: https://github.com/PowerShell/PowerShell/issues/18070
 
 .LINK
@@ -66,7 +67,7 @@ One or more arrays (`Object[]`) contain the input items
 
 [CmdletBinding()]
 param (
-    [UInt64]$Size,
+    [UInt64]$Size = [UInt64]::MaxValue,
     [Parameter(Mandatory=$true, ValueFromPipeline=$true)]$InputObject
 )
 begin {

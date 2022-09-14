@@ -37,7 +37,7 @@ PS >
 ```PowerShell
 Get-Process |Create-Batch -Size 100 |Set-Content .\Process.txt
 ```
- Note this appears (for yet unknown reason) to be faster then just  
+ Note this appears (for yet unknown reason) to be faster than just  
 `Get-Process |Set-Content .\Process.txt`  
 See: https://github.com/PowerShell/PowerShell/issues/18070
 

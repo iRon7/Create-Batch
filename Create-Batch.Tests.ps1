@@ -116,3 +116,22 @@ Describe 'Rebatching' {
         }
     }
 }
+
+Describe 'Performance' {
+
+    Context 'Set-Content' {
+
+        It 'is twice as fast' {
+
+            $Normal = (Measure-Command {
+                1..100000 |Set-Content .\test.txt
+            }).TotalSeconds
+
+            $Batched = (Measure-Command {
+                1..100000 |Create-Batch 10000 |Set-Content .\test.txt
+            }).TotalSeconds
+            
+            $Batched |Should -BeLessThan ($Normal / 2)
+        }
+    }
+}

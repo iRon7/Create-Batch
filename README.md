@@ -12,7 +12,6 @@ Create-Batch
 
 ## [Examples](exampls)
 ### Example 1
-PS > 
 ```PowerShell
 0..9 |Create-Batch -Size 3 |ForEach-Object { "$_" }
 0 1 2
@@ -23,7 +22,6 @@ PS >
  This example sents batches of 3 items down the PowerShell pipeline.
 
 ### Example 2
-PS > 
 ```PowerShell
 0..9 |Create-Batch -Size 3 |Create-Batch |Create-Batch -Size 4 |ForEach-Object { "$_" }
 0 1 2 3
@@ -33,12 +31,11 @@ PS >
  This example removes the batches of 3 items and creates new batches of 4 items.
 
 ### Example 3
-PS > 
 ```PowerShell
 Get-Process |Create-Batch -Size 100 |Set-Content .\Process.txt
 ```
- Note this appears (for yet unknown reason) to be faster than just  
-`Get-Process |Set-Content .\Process.txt`  
+The result of this statement is the same as: `Get-Process |Set-Content .\Process.txt` 
+But note that this appears (for yet unknown reason) **about twice as fast.**  
 See: https://github.com/PowerShell/PowerShell/issues/18070
 
 ## [Parameters](#parameters)

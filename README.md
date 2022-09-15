@@ -34,9 +34,9 @@ Create-Batch
 ```PowerShell
 Get-Process |Create-Batch |Set-Content .\Process.txt
 ```
- This creates a single batch (array) containing all the itams  
+This creates a single batch (array) containing all the items  
 The result of this statement is the same as: `Get-Process |Set-Content .\Process.txt`  
-But note that this appears (for yet unknown reason) **about twice as fast**.  
+But note that this appears (for yet unknown reason) **about twice as fast** even if you use the memory usage by setting e.g. `-Size 10000`.
 See: https://github.com/PowerShell/PowerShell/issues/18070
 
 ## [Parameters](#parameters)

@@ -5,40 +5,41 @@ Puts pipeline items into one or more batches
 This cmdlet puts the items in the pipeline into batches of a sertain ammount.
 
 ## Examples
-### Example 1: Batches of 3 items
-This example sents batches of 3 items down the PowerShell pipeline.
-
+### Example 1:
 ```PowerShell
 0..9 |Create-Batch -Size 3 |ForEach-Object { "$_" }
 0 1 2
 3 4 5
 6 7 8
 9
-```
-### Example 2: Resize batches
-This example removes the batches of 3 items and creates new batches of 4 items.
 
+This example sents batches of 3 items down the PowerShell pipeline.
+```
+### Example 2:
 ```PowerShell
 0..9 |Create-Batch -Size 3 |Create-Batch |Create-Batch -Size 4 |ForEach-Object { "$_" }
 0 1 2 3
 4 5 6 7
 8 9
+
+This example removes the batches of 3 items and creates new batches of 4 items.
 ```
-### Example 3: Single batch
+### Example 3:
+```PowerShell
+Get-Process |Create-Batch |Set-Content .\Process.txt
+
 This creates a single batch (array) containing all the itams
 The result of this statement is the same as: `Get-Process |Set-Content .\Process.txt`
 But note that this appears (for yet unknown reason) **about twice as fast**.
-See: [PowerShell issue `#18070`][1]
-
-```PowerShell
-Get-Process |Create-Batch |Set-Content .\Process.txt
+See: https://github.com/PowerShell/PowerShell/issues/18070
 ```
 ## Parameter
 #### <a id="-size">**`-Size <UInt64>`**</a>
+```PowerShell
 The size of the batches (arrays) to be created.
 If the `-Size` parameter is omitted (or `0`) all current batches will be removed.
 Note that only the top arrays (batches) will be flattened.
-
+```
 
 <table>
 <tr><td>Type:</td><td><a href="https://docs.microsoft.com/en-us/dotnet/api/System.UInt64">UInt64</a></td></tr>
@@ -49,8 +50,9 @@ Note that only the top arrays (batches) will be flattened.
 </table>
 
 #### <a id="-inputobject">**`-InputObject <Object>`**</a>
+```PowerShell
 The list of items to be put into batches (arrays)
-
+```
 
 <table>
 <tr><td>Type:</td><td><a href="https://docs.microsoft.com/en-us/dotnet/api/System.Object">Object</a></td></tr>
@@ -67,6 +69,3 @@ A list of items
 One or more arrays (`Object[]`) contain the input items
 
 ## Related Links
-* 1: https://github.com/PowerShell/PowerShell/issues/18070
-
-[1]: https://github.com/PowerShell/PowerShell/issues/18070

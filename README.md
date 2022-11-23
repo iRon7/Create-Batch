@@ -1,6 +1,14 @@
 # Create-Batch
 Puts pipeline items into one or more batches
 
+## Syntax
+```JavaScript
+Create-Batch
+    [[-Size] <ulong>]
+    [-InputObject] <Object>
+    [<CommonParameters>]
+```
+
 ## Description
 This cmdlet puts the items in the pipeline into batches of a sertain ammount.
 

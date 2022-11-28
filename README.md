@@ -3,6 +3,10 @@ Puts pipeline items into one or more batches
 
 ## Syntax
 ```JavaScript
+Create-Batch
+    [[-Size] <ulong>]
+    [-InputObject] <Object>
+    [<CommonParameters>]
 ```
 
 ## Description

@@ -38,29 +38,29 @@ See: [PowerShell issue `#18070`][1]
 Get-Process |Create-Batch |Set-Content .\Process.txt
 ```
 ## Parameter
-#### <a id="-size">**`-Size <>`**</a>
+#### <a id="-size">**`-Size <UInt64>`**</a>
 The size of the batches (arrays) to be created.
 If the `-Size` parameter is omitted (or `0`) all current batches will be removed.
 Note that only the top arrays (batches) will be flattened.
 
 
 <table>
-<tr><td>Type:</td><td></td></tr>
-<tr><td>Position:</td><td>Named</td></tr>
+<tr><td>Type:</td><td><a href="https://docs.microsoft.com/en-us/dotnet/api/System.UInt64">UInt64</a></td></tr>
+<tr><td>Position:</td><td>0</td></tr>
 <tr><td>Default value:</td><td><code>[UInt64]::MaxValue</code></td></tr>
-<tr><td>Accept pipeline input:</td><td></td></tr>
+<tr><td>Accept pipeline input:</td><td>False</td></tr>
 <tr><td>Accept wildcard characters:</td><td>False</td></tr>
 </table>
 
-#### <a id="-inputobject">**`-InputObject <>`**</a>
+#### <a id="-inputobject">**`-InputObject <Object>`**</a>
 The list of items to be put into batches (arrays)
 
 
 <table>
-<tr><td>Type:</td><td></td></tr>
-<tr><td>Position:</td><td>Named</td></tr>
+<tr><td>Type:</td><td><a href="https://docs.microsoft.com/en-us/dotnet/api/System.Object">Object</a></td></tr>
+<tr><td>Position:</td><td>1</td></tr>
 <tr><td>Default value:</td><td></td></tr>
-<tr><td>Accept pipeline input:</td><td></td></tr>
+<tr><td>Accept pipeline input:</td><td>False</td></tr>
 <tr><td>Accept wildcard characters:</td><td>False</td></tr>
 </table>
 

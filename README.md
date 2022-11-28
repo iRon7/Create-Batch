@@ -3,10 +3,6 @@ Puts pipeline items into one or more batches
 
 ## Syntax
 ```JavaScript
-Create-Batch
-    [[-Size] <ulong>]
-    [-InputObject] <Object>
-    [<CommonParameters>]
 ```
 
 ## Description
@@ -41,6 +37,33 @@ See: [PowerShell issue `#18070`][1]
 ```PowerShell
 Get-Process |Create-Batch |Set-Content .\Process.txt
 ```
+## Parameter
+#### <a id="-size">**`-Size <>`**</a>
+The size of the batches (arrays) to be created.
+If the `-Size` parameter is omitted (or `0`) all current batches will be removed.
+Note that only the top arrays (batches) will be flattened.
+
+
+<table>
+<tr><td>Type:</td><td></td></tr>
+<tr><td>Position:</td><td>Named</td></tr>
+<tr><td>Default value:</td><td><code>[UInt64]::MaxValue</code></td></tr>
+<tr><td>Accept pipeline input:</td><td></td></tr>
+<tr><td>Accept wildcard characters:</td><td>False</td></tr>
+</table>
+
+#### <a id="-inputobject">**`-InputObject <>`**</a>
+The list of items to be put into batches (arrays)
+
+
+<table>
+<tr><td>Type:</td><td></td></tr>
+<tr><td>Position:</td><td>Named</td></tr>
+<tr><td>Default value:</td><td></td></tr>
+<tr><td>Accept pipeline input:</td><td></td></tr>
+<tr><td>Accept wildcard characters:</td><td>False</td></tr>
+</table>
+
 ## Inputs
 A list of items
 
